@@ -1,0 +1,7 @@
+*.md
+.DS_Store
+.git*
+docs/
+examples/
+support/
+test/

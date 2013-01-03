@@ -1,0 +1,14 @@
+{
+    "name": "td-client",
+    "version": "0.1.0",
+    "author": "Jeff Yuan <jwyuan@alum.mit.edu>",
+    "description": "node.js client for Treasure Data",
+    "dependencies": {
+        "request": "2.11.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/jyuan/td-node-client.git"
+    },
+    "main": "./lib"
+}
