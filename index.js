@@ -43,6 +43,46 @@ TDClient.prototype = {
         }, callback);
     },
 
+    // create_log_or_item_table: function(db, table, type, callback) {
+    //     this._request("/v3/table/create/" + qs.escape(db) + "/" + qs.escape(table) + "/" + qs.escape(type), {
+    //         method: 'POST',
+    //         json: true
+    //     }, callback);
+    // },
+
+    create_table: function(db, table, type, callback) {
+        this._request("/v3/table/create/" + qs.escape(db) + "/" + qs.escape(table) + "/" + qs.escape(type), {
+            method: 'POST',
+            json: true
+        }, callback);
+    },
+
+    swap_table: function(db, table1, table2, callback) {
+        this._request("/v3/table/swap/" + qs.escape(db) + "/" + qs.escape(table1) + "/" + qs.escape(table2), {
+            method: 'POST',
+            json: true
+        }, callback);
+    },
+
+    update_schema: function(db, table, schema_json, callback) {
+        this._request("/v3/table/update-schema/" + qs.escape(db) + "/" + qs.escape(table), {
+            method: 'POST',
+            body: schema_json,
+            json: true
+        }, callback);
+    },
+
+    delete_table: function(db, table, callback) {
+        this._request("/v3/table/update-schema/" + qs.escape(db) + "/" + qs.escape(table), {
+            method: 'POST',
+            json: true
+        }, callback);
+    },
+
+    /*
+    tail: omitted for now
+    */
+
     // Jobs API
     show_job: function(job_id, callback) {
         this._request("/v3/job/show/" + job_id, {
