@@ -1,4 +1,5 @@
 var request = require('request').defaults({encoding: 'utf8'});
+var qs = require('querystring');
 
 function TDClient(apikey, options) {
     this.options = options || {};
@@ -17,6 +18,20 @@ TDClient.prototype = {
     list_databases: function(callback) {
         this._request("/v3/database/list", {
             method: 'GET',
+            json: true
+        }, callback);
+    },
+
+    delete_database: function(db, callback) {
+        this._request("/v3/database/delete/" + qs.escape(db), {
+            method: 'POST',
+            json: true
+        }, callback);
+    },
+
+    create_database: function(db, callback) {
+        this._request("/v3/database/create/" + qs.escape(db), {
+            method: 'POST',
             json: true
         }, callback);
     },
@@ -41,7 +56,7 @@ TDClient.prototype = {
             body: { query: query },
             json: true
         }, callback);
-    }
+    },
 
     // PROTECTED METHODS
     _request: function(path, options, callback) {
@@ -51,7 +66,6 @@ TDClient.prototype = {
         }
         options.uri = this.baseUrl + path;
         options.headers = { 'Authorization': 'TD1 ' + this.options.apikey };
-
         callback = callback || noop;
 
         request(options, function (err, res, body) {
