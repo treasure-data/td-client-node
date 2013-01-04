@@ -84,8 +84,24 @@ TDClient.prototype = {
     */
 
     // Jobs API
+    /*
+     * all params except for callback is optional
+     */
+    // list_job: function(from, to, status, conditions, callback) {
+    //     this._request("/v3/job/show/" + job_id, {
+    //         json: true
+    //     }, callback);
+    // },
+
     show_job: function(job_id, callback) {
         this._request("/v3/job/show/" + job_id, {
+            json: true
+        }, callback);
+    },
+
+    kill: function(job_id, callback) {
+        this._request("/v3/job/kill/" + job_id, {
+            method: 'POST',
             json: true
         }, callback);
     },
