@@ -1,9 +1,10 @@
 {
     "name": "td",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "author": "Jeff Yuan <jwyuan@alum.mit.edu>",
     "description": "Node.js client for Treasure Data",
     "dependencies": {
+        "msgpack": "0.1.7",
         "request": "2.11.0"
     },
     "repository": {
