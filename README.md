@@ -20,3 +20,8 @@ footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.
 node.js >= 0.8
 
 ## Install
+
+    npm install td
+
+## Examples
+Please see: [http://docs.treasure-data.com/articles/rest-api-node-client](http://docs.treasure-data.com/articles/rest-api-node-client)
