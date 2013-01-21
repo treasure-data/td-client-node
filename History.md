@@ -7,3 +7,8 @@
 ==================
 
   * Initial release with basic API support
+
+0.2.1 / 2013-01-20
+==================
+
+  * Escape url params
