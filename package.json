@@ -1,6 +1,6 @@
 {
     "name": "td",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "author": "Jeff Yuan <jwyuan@alum.mit.edu>",
     "description": "Node.js client for Treasure Data",
     "dependencies": {

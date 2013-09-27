@@ -12,3 +12,8 @@
 ==================
 
   * Escape url params
+
+0.2.2 / 2013-09-27
+==================
+
+* Merged pull request from @nozaq to fix result api
