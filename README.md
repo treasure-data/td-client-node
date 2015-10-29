@@ -25,3 +25,9 @@ node.js >= 0.8
 
 ## Examples
 Please see: [http://docs.treasure-data.com/articles/rest-api-node-client](http://docs.treasure-data.com/articles/rest-api-node-client)
+
+## License
+
+Apache Software License, Version 2.0
+
+See [LICENSE file](https://github.com/treasure-data/td-client-node/blob/master/LICENSE).
