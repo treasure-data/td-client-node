@@ -1,5 +1,7 @@
 # Node.js Client for Treasure Data
 
+[![Circle CI](https://circleci.com/gh/treasure-data/td-client-node.svg?style=svg&circle-token=3e6d45d70e790212c0aa5a974f3daf8656fd3a37)](https://circleci.com/gh/treasure-data/td-client-node)
+
 ## Overview
 
 Many web/mobile applications generate huge amount of event logs (c,f. login,
