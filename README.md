@@ -31,7 +31,7 @@ node.js >= 0.8
 
 ## Test
 
-    npm test
+    make test
 
 ## Examples
 Please see: [http://docs.treasure-data.com/articles/rest-api-node-client](http://docs.treasure-data.com/articles/rest-api-node-client)
