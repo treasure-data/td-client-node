@@ -25,6 +25,10 @@ node.js >= 0.8
 
     npm install td
 
+## Generate JSDoc site
+
+    make site
+
 ## Examples
 Please see: [http://docs.treasure-data.com/articles/rest-api-node-client](http://docs.treasure-data.com/articles/rest-api-node-client)
 
