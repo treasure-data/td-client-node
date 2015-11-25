@@ -12,7 +12,7 @@ reliably is a challenging task.
 Treasure Data Cloud solves the problem by having: easy installation, small 
 footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.
 
-  * Treasure Data website: [http://treasure-data.com/](http://treasure-data.com/)
+  * Treasure Data website: [https://www.treasuredata.com/](https://www.treasuredata.com/)
   * Treasure Data GitHub: [https://github.com/treasure-data/](https://github.com/treasure-data/)
 
 **td-client-node** is a node.js client.
@@ -34,7 +34,7 @@ node.js >= 0.8
     make test
 
 ## Examples
-Please see: [http://docs.treasure-data.com/articles/rest-api-node-client](http://docs.treasure-data.com/articles/rest-api-node-client)
+Please see: [https://docs.treasuredata.com/articles/rest-api-node-client](https://docs.treasuredata.com/articles/rest-api-node-client)
 
 ## License
 
