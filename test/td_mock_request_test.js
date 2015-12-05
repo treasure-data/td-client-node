@@ -104,4 +104,14 @@ describe('TD with mock api', function() {
             });
         });
     });
+
+    describe('#runSchedule', function() {
+        it('should return job record ', function(done) {
+            client.runSchedule('12345', '1448928000', function(err, results) {
+                assert.equal(null, err);
+                assert.equal(1, results.jobs.length);
+                done();
+            });
+        });
+    });
 });

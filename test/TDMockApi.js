@@ -109,6 +109,12 @@ TDMockApi.prototype = {
             former_status: "running",
             job_id: "12345"
         });
+
+        this.apiServer.post('/v3/schedule/run/12345/1448928000').reply(200, {
+            jobs: [
+                { job_id: "123456", type: 'hive', scheduled_at: '2015-12-01 00:00:00 UTC' }
+            ]
+        });
     },
 
     start: function() {
