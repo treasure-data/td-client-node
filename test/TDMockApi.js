@@ -113,6 +113,77 @@ TDMockApi.prototype = {
             job_id: '12345'
         });
 
+        this.apiServer.post('/v3/schedule/create/my_scheduled_query', {
+            cron: '0 * * * *',
+            query: 'SELECT COUNT(1) FROM www_access',
+            type: 'hive',
+            database: 'sample_datasets'
+        }).reply(200, {
+            name: 'my_scheduled_query',
+            cron: '0 * * * *',
+            timezone: 'UTC',
+            delay: 0,
+            created_at: '2015-12-08T01:22:27Z',
+            type: 'hive',
+            query: 'SELECT COUNT(1) FROM www_access',
+            database: 'sample_datasets',
+            user_name: 'test@example.com',
+            priority: 0,
+            retry_limit: 0,
+            result: '',
+            id: 12345,
+            start: '2015-12-08T02:00:00Z'
+        });
+
+        this.apiServer.post('/v3/schedule/delete/my_scheduled_query').reply(200, {
+            name: 'my_scheduled_query',
+            timezone: 'Asia/Tokyo',
+            delay: 0,
+            created_at: '2015-12-06T05:43:42Z',
+            type: 'hive',
+            query: 'SELECT COUNT(1) FROM www_access',
+            database: 'sample_datasets',
+            user_name: 'test@example.com'
+        });
+
+        this.apiServer.get('/v3/schedule/list').reply(200, {
+            schedules: [
+                {
+                    name: 'my_scheduled_query',
+                    cron: '0 * * * *',
+                    timezone: 'Asia/Tokyo',
+                    delay: 0,
+                    created_at: '2015-12-06T05:43:42Z',
+                    type: 'hive',
+                    query: 'SELECT COUNT(1) FROM www_access',
+                    database: 'sample_datasets',
+                    user_name: 'test@example.com',
+                    priority: 0,
+                    retry_limit: 0,
+                    next_time: null
+                }
+            ]
+        });
+
+        this.apiServer.post('/v3/schedule/update/my_scheduled_query', {
+            query: 'SELECT COUNT(1) FROM nasdaq'
+        }).reply(200, {
+            name: 'my_scheduled_query',
+            cron: '0 * * * *',
+            timezone: 'UTC',
+            delay: 0,
+            created_at: '2015-12-08T01:22:27Z',
+            type: 'hive',
+            query: 'SELECT COUNT(1) FROM nasdaq',
+            database: 'sample_datasets',
+            user_name: 'test@example.com',
+            priority: 0,
+            retry_limit: 0,
+            result: '',
+            id: 12345,
+            start: '2015-12-08T02:00:00Z'
+        });
+
         this.apiServer.get('/v3/job/status/12345').reply(200, {
             job_id: "12345",
             status: "success",

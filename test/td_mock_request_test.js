@@ -138,6 +138,91 @@ describe('TD with mock api', function() {
         });
     });
 
+    describe('#createSchedule', function() {
+        it('should create target schedule', function(done) {
+            var opts = {
+                cron: '0 * * * *',
+                query: 'SELECT COUNT(1) FROM www_access',
+                type: 'hive',
+                database: 'sample_datasets'
+            };
+            client.createSchedule('my_scheduled_query', opts, function(err, results) {
+                assert.equal(null, err);
+                assert.equal('my_scheduled_query', results.name);
+                assert.equal('UTC', results.timezone);
+                assert.equal(0, results.delay);
+                assert.equal('2015-12-08T01:22:27Z', results.created_at);
+                assert.equal('2015-12-08T02:00:00Z', results.start);
+                assert.equal('hive', results.type);
+                assert.equal('SELECT COUNT(1) FROM www_access', results.query);
+                assert.equal('sample_datasets', results.database);
+                assert.equal('test@example.com', results.user_name);
+                done();
+            });
+        });
+    });
+
+    describe('#deleteSchedule', function() {
+        it('should delete target schedule', function(done) {
+            client.deleteSchedule('my_scheduled_query', function(err, results) {
+                assert.equal(null, err);
+                assert.equal('my_scheduled_query', results.name);
+                assert.equal('Asia/Tokyo', results.timezone);
+                assert.equal(0, results.delay);
+                assert.equal('2015-12-06T05:43:42Z', results.created_at);
+                assert.equal('hive', results.type);
+                assert.equal('SELECT COUNT(1) FROM www_access', results.query);
+                assert.equal('sample_datasets', results.database);
+                assert.equal('test@example.com', results.user_name);
+                done();
+            });
+        });
+    });
+
+    describe('#listSchedule', function() {
+       it('should list up all scheduled queries', function(done) {
+           client.listSchedules(function(err, results) {
+               assert.equal(null, err);
+               assert.equal(1, results.schedules.length);
+               var firstSchedule = results.schedules[0];
+               assert.equal('my_scheduled_query', firstSchedule.name);
+               assert.equal('0 * * * *', firstSchedule.cron);
+               assert.equal('Asia/Tokyo', firstSchedule.timezone);
+               assert.equal(0, firstSchedule.delay);
+               assert.equal('2015-12-06T05:43:42Z', firstSchedule.created_at);
+               assert.equal('hive', firstSchedule.type);
+               assert.equal('SELECT COUNT(1) FROM www_access', firstSchedule.query);
+               assert.equal('sample_datasets', firstSchedule.database);
+               assert.equal('test@example.com', firstSchedule.user_name);
+               assert.equal(0, firstSchedule.priority);
+               assert.equal(0, firstSchedule.retry_limit);
+               assert.equal(null, firstSchedule.next_time);
+               done();
+           });
+       });
+    });
+
+    describe('#updateSchedule', function() {
+        it('should update target schedule', function(done) {
+            var opts = {
+                query: 'SELECT COUNT(1) FROM nasdaq'
+            };
+            client.updateSchedule('my_scheduled_query', opts, function(err, results) {
+                assert.equal(null, err);
+                assert.equal('my_scheduled_query', results.name);
+                assert.equal('UTC', results.timezone);
+                assert.equal(0, results.delay);
+                assert.equal('2015-12-08T01:22:27Z', results.created_at);
+                assert.equal('2015-12-08T02:00:00Z', results.start);
+                assert.equal('hive', results.type);
+                assert.equal('SELECT COUNT(1) FROM nasdaq', results.query);
+                assert.equal('sample_datasets', results.database);
+                assert.equal('test@example.com', results.user_name);
+                done();
+            });
+        });
+    });
+
     describe('#runSchedule', function() {
         it('should return job record ', function(done) {
             client.runSchedule('12345', '1448928000', function(err, results) {
