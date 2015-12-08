@@ -114,6 +114,19 @@ describe('TD with mock api', function() {
         });
     });
 
+    describe('#prestoQuery', function() {
+       it('should submit presto query', function(done) {
+           var q = 'SELECT COUNT(*) FROM www_access';
+           client.prestoQuery('my_db', q, function(err, results) {
+               assert.equal(null, err);
+               assert.equal("12345", results.job);
+               assert.equal("my_db", results.database);
+               assert.equal("12345", results.job_id);
+               done();
+           });
+       });
+    });
+
     describe('#kill', function() {
         it('should kill target job', function(done) {
             client.kill('12345', function(err, results) {

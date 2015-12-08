@@ -105,6 +105,14 @@ TDMockApi.prototype = {
             url: "http://console.treasure.com/will-be-ready"
         });
 
+        this.apiServer.post('/v3/job/issue/presto/my_db', {
+            query: "SELECT COUNT(*) FROM www_access"
+        }).reply(200, {
+            job: '12345',
+            database: 'my_db',
+            job_id: '12345'
+        });
+
         this.apiServer.get('/v3/job/status/12345').reply(200, {
             job_id: "12345",
             status: "success",
