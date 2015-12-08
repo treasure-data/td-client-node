@@ -31,6 +31,26 @@ describe('TD with mock api', function() {
         });
     });
 
+    describe('#deleteDatabase', function() {
+       it('should delete target db', function(done) {
+          client.deleteDatabase('db_to_be_deleted', function(err, results) {
+              assert.equal(null, err);
+              assert.equal('db_to_be_deleted', results.database);
+              done();
+          });
+       });
+    });
+
+    describe('#createDatabase', function() {
+       it('should create target db', function(done) {
+          client.createDatabase('db_to_be_created', function(err, results) {
+              assert.equal(null, err);
+              assert.equal('db_to_be_created', results.database);
+              done();
+          });
+       });
+    });
+
     describe('#listJobs', function() {
         it('should get all jobs', function(done){
             client.listJobs(function(err, results) {

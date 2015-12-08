@@ -16,6 +16,14 @@ TDMockApi.prototype = {
             ]
         });
 
+        this.apiServer.post('/v3/database/delete/db_to_be_deleted').reply(200, {
+           database: 'db_to_be_deleted'
+        });
+
+        this.apiServer.post('/v3/database/create/db_to_be_created').reply(200, {
+           database: 'db_to_be_created'
+        });
+
         this.apiServer.get('/v3/job/list/?from=0').reply(200, {
             count: 2,
             from: null,
