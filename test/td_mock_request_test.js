@@ -112,12 +112,40 @@ describe('TD with mock api', function() {
                 done();
             });
         });
+
+        it('should submit hive query with options', function(done) {
+            var q = 'SELECT COUNT(*) FROM www_access';
+            var opts = { result: "web://result.example.com/callback" }
+
+            client.hiveQuery('my_db', q, opts, function(err, results) {
+                assert.equal(null ,err);
+                assert.equal("12345", results.job_id);
+                assert.equal("hive", results.type);
+                assert.equal("my_db", results.database);
+                assert.equal("http://console.treasure.com/will-be-ready",
+                             results.url);
+                done();
+            });
+        });
     });
 
     describe('#prestoQuery', function() {
        it('should submit presto query', function(done) {
            var q = 'SELECT COUNT(*) FROM www_access';
            client.prestoQuery('my_db', q, function(err, results) {
+               assert.equal(null, err);
+               assert.equal("12345", results.job);
+               assert.equal("my_db", results.database);
+               assert.equal("12345", results.job_id);
+               done();
+           });
+       });
+
+       it('should submit presto query with options', function(done) {
+           var q = 'SELECT COUNT(*) FROM www_access';
+           var opts = { result: "web://result.example.com/callback" }
+
+           client.prestoQuery('my_db', q, opts, function(err, results) {
                assert.equal(null, err);
                assert.equal("12345", results.job);
                assert.equal("my_db", results.database);

@@ -105,8 +105,27 @@ TDMockApi.prototype = {
             url: "http://console.treasure.com/will-be-ready"
         });
 
+        this.apiServer.post('/v3/job/issue/hive/my_db', {
+            query: "SELECT COUNT(*) FROM www_access",
+            result: 'web://result.example.com/callback'
+        }).reply(200, {
+            job_id: "12345",
+            type: "hive",
+            database: "my_db",
+            url: "http://console.treasure.com/will-be-ready"
+        });
+
         this.apiServer.post('/v3/job/issue/presto/my_db', {
             query: "SELECT COUNT(*) FROM www_access"
+        }).reply(200, {
+            job: '12345',
+            database: 'my_db',
+            job_id: '12345'
+        });
+
+        this.apiServer.post('/v3/job/issue/presto/my_db', {
+            query: "SELECT COUNT(*) FROM www_access",
+            result: 'web://result.example.com/callback'
         }).reply(200, {
             job: '12345',
             database: 'my_db',
