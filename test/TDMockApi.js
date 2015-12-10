@@ -96,41 +96,36 @@ TDMockApi.prototype = {
             table2: "tbl2"
         });
 
-        this.apiServer.post('/v3/job/issue/hive/my_db', {
-            query: "SELECT COUNT(*) FROM www_access"
-        }).reply(200, {
+        var hive_query_response = {
             job_id: "12345",
             type: "hive",
             database: "my_db",
             url: "http://console.treasure.com/will-be-ready"
-        });
+        }
+
+        this.apiServer.post('/v3/job/issue/hive/my_db', {
+            query: "SELECT COUNT(*) FROM www_access"
+        }).reply(200, hive_query_response);
 
         this.apiServer.post('/v3/job/issue/hive/my_db', {
             query: "SELECT COUNT(*) FROM www_access",
             result: 'web://result.example.com/callback'
-        }).reply(200, {
-            job_id: "12345",
-            type: "hive",
-            database: "my_db",
-            url: "http://console.treasure.com/will-be-ready"
-        });
+        }).reply(200, hive_query_response);
 
-        this.apiServer.post('/v3/job/issue/presto/my_db', {
-            query: "SELECT COUNT(*) FROM www_access"
-        }).reply(200, {
+        var presto_query_response = {
             job: '12345',
             database: 'my_db',
             job_id: '12345'
-        });
+        }
+
+        this.apiServer.post('/v3/job/issue/presto/my_db', {
+            query: "SELECT COUNT(*) FROM www_access"
+        }).reply(200, presto_query_response);
 
         this.apiServer.post('/v3/job/issue/presto/my_db', {
             query: "SELECT COUNT(*) FROM www_access",
             result: 'web://result.example.com/callback'
-        }).reply(200, {
-            job: '12345',
-            database: 'my_db',
-            job_id: '12345'
-        });
+        }).reply(200, presto_query_response);
 
         this.apiServer.post('/v3/schedule/create/my_scheduled_query', {
             cron: '0 * * * *',
