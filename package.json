@@ -1,25 +1,38 @@
 {
-    "name": "td",
-    "version": "0.2.4",
-    "author": "Jeff Yuan <jwyuan@alum.mit.edu>",
-    "contributors": [
-        "Kai Sasaki <lewuathe@me.com>"
-    ],
-    "description": "Node.js client for Treasure Data",
-    "dependencies": {
-        "jsdoc": "^3.3.3",
-        "mocha": "*",
-        "msgpack": "1.0.2",
-        "nock": "^2.17.0",
-        "request": "2.65.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/treasure-data/td-client-node.git"
-    },
-    "license": "Apache-2.0",
-    "main": "./lib",
-    "scripts": {
-        "test": "./node_modules/.bin/mocha"
+  "name": "td",
+  "version": "0.2.4",
+  "author": "Jeff Yuan <jwyuan@alum.mit.edu>",
+  "contributors": [
+    "Kai Sasaki <lewuathe@me.com>"
+  ],
+  "description": "Node.js client for Treasure Data",
+  "dependencies": {
+    "blanket": "^1.2.1",
+    "jsdoc": "^3.3.3",
+    "mocha": "*",
+    "mocha-multi": "^0.7.2",
+    "msgpack": "1.0.2",
+    "nock": "^2.17.0",
+    "request": "2.65.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/treasure-data/td-client-node.git"
+  },
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "lib"
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "tests"
+      ]
     }
+  }
 }
