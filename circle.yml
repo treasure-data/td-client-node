@@ -6,4 +6,7 @@ machine:
   post:
       - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 50 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 
+test:
+  override:
+      - make circleci
     
