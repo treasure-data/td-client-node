@@ -260,4 +260,21 @@ describe('TD with mock api', function() {
             });
         });
     });
+
+    describe('Custome Header with show job', function() {
+        it('should send custom header', function(done) {
+            var customHeaderClient = new TD('MOCK_API_KEY', {
+                host: 'mock.api.treasuredata.com',
+                headers: {
+                    'Custom Header': 'CUSTOM'
+                }
+            });
+
+            customHeaderClient.showJob('custom_header', function(err, results) {
+                assert.equal(null, err);
+                done();
+            });
+        });
+
+    })
 });

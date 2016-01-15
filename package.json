@@ -9,6 +9,7 @@
   "dependencies": {
     "blanket": "^1.2.1",
     "jsdoc": "^3.3.3",
+    "merge": "^1.2.0",
     "mocha": "*",
     "mocha-multi": "^0.7.2",
     "msgpack": "1.0.2",

@@ -1,4 +1,5 @@
 var nock = require('nock');
+var assert = require('assert');
 
 function TDMockApi(options) {
     this.options = options || {};
@@ -216,11 +217,17 @@ TDMockApi.prototype = {
                 { job_id: "123456", type: 'hive', scheduled_at: '2015-12-01 00:00:00 UTC' }
             ]
         });
+
+        this.apiServer.get('/v3/job/show/custom_header').reply(function(uri, request) {
+            assert.equal(this.req.headers['custom header'], 'CUSTOM');
+        });
     },
 
     start: function() {
         this._config();
     }
 };
+
+
 
 module.exports = TDMockApi;
