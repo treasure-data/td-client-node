@@ -1,3 +1,4 @@
+
 {
   "name": "td",
   "version": "0.2.4",
@@ -12,7 +13,6 @@
     "merge": "^1.2.0",
     "mocha": "*",
     "mocha-multi": "^0.7.2",
-    "msgpack": "1.0.2",
     "nock": "^2.17.0",
     "request": "2.65.0"
   },
