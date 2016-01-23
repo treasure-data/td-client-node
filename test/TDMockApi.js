@@ -221,6 +221,65 @@ TDMockApi.prototype = {
         this.apiServer.get('/v3/job/show/custom_header').reply(function(uri, request) {
             assert.equal(this.req.headers['custom header'], 'CUSTOM');
         });
+
+        this.apiServer.post('/v3/bulk_import/create/test_import/test_db/test_table').reply(200, {
+            name: 'test_import',
+            bulk_import: 'test_import'
+        });
+
+        this.apiServer.post('/v3/bulk_import/delete/test_import').reply(200, {
+            name: 'test_import',
+            bulk_import: 'test_import'
+        });
+
+        var bulkImport = {
+            name: 'test_import',
+            status: 'uploading',
+            job_id: null,
+            valid_records: null,
+            error_records: null,
+            valid_parts: null,
+            error_parts: null,
+            upload_frozen: false,
+            database: 'test_db',
+            table: 'test_table'
+        }
+
+        this.apiServer.get('/v3/bulk_import/show/test_import').reply(200, bulkImport);
+
+        this.apiServer.get('/v3/bulk_import/list').reply(200, {
+            bulk_imports: [
+                bulkImport,
+                bulkImport
+            ]
+        });
+
+        this.apiServer.get('/v3/bulk_import/list_parts/test_import').reply(200, {
+            parts: [ 'part1', 'part2' ],
+            name: 'test_import',
+            bulk_import: 'test_import'
+        });
+
+        this.apiServer.put('/v3/bulk_import/upload_part/test_import/part1').reply(200, {
+            bulk_import:"test_import",
+            name:"test_import"
+        });
+
+        this.apiServer.post('/v3/bulk_import/delete_part/test_import/part1').reply(200, {
+            bulk_import:"test_import",
+            name:"test_import"
+        });
+
+        this.apiServer.post('/v3/bulk_import/perform/test_import').reply(200, {
+            name: 'test_import',
+            bulk_import: 'test_import',
+            job_id: 12345678
+        });
+
+        this.apiServer.post('/v3/bulk_import/commit/test_import').reply(200, {
+            name: 'test_import',
+            bulk_import: 'test_import'
+        });
     },
 
     start: function() {
