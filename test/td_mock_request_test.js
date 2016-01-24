@@ -1,3 +1,4 @@
+var fs = require('fs');
 var assert = require('assert');
 var TDMockApi = require('./TDMockApi.js');
 
@@ -275,6 +276,116 @@ describe('TD with mock api', function() {
                 done();
             });
         });
+    });
 
+    describe('#createBulkImport', function() {
+        it('should create bulk import session', function(done) {
+            client.createBulkImport('test_import', 'test_db', 'test_table', function(err, results) {
+                assert.equal(err, null);
+                assert.equal(results.name, 'test_import');
+                assert.equal(results.bulk_import, 'test_import');
+                done();
+            });
+        })
+    });
+
+    describe('#deleteBulkImport', function() {
+        it('should delete bulk import session', function(done) {
+            client.deleteBulkImport('test_import', function(err, results) {
+                assert.equal(err, null);
+                assert.equal(results.name, 'test_import');
+                assert.equal(results.bulk_import, 'test_import');
+                done();
+            })
+        })
+    });
+
+    describe('#showBulkImport', function() {
+        it('should show bulk import detail', function(done) {
+            client.showBulkImport('test_import', function(err, results) {
+                assert.equal(err, null);
+                assert.equal(results.name, 'test_import');
+                assert.equal(results.status, 'uploading');
+                assert.equal(results.job_id, null);
+                assert.equal(results.valid_records, null);
+                assert.equal(results.error_records, null);
+                assert.equal(results.valid_parts, null);
+                assert.equal(results.error_parts, null);
+                assert.equal(results.upload_frozen, false);
+                assert.equal(results.database, 'test_db');
+                assert.equal(results.table, 'test_table');
+                done();
+            });
+        })
+    });
+
+    describe('#listBulkImports', function() {
+        it('should show the list of bulk import sessions of current account', function(done) {
+            client.listBulkImports(function(err, results) {
+                assert.equal(err, null);
+                assert.equal(results.bulk_imports.length, 2);
+                done();
+            });
+        })
     })
+
+    describe('#listBulkImportParts', function() {
+       it('should show the list of partitions of specified session', function(done) {
+           client.listBulkImportParts('test_import', function(err, results) {
+               assert.equal(err, null);
+               assert.equal(results.name, 'test_import');
+               assert.equal(results.bulk_import, 'test_import');
+               assert.equal(results.parts.length, 2);
+               assert.equal(results.parts[0], 'part1');
+               assert.equal(results.parts[1], 'part2');
+               done();
+           });
+       })
+    });
+
+    describe('#bulkImportUploadPart', function() {
+        it('should upload partition file', function(done) {
+            var s = fs.createReadStream('./test/bulk_import_data_csv_0.msgpack.gz');
+            client.bulkImportUploadPart('test_import', 'part1', s, function(err, results) {
+                assert.equal(err, null);
+                assert.equal(results.bulk_import, 'test_import');
+                assert.equal(results.name, 'test_import');
+                done();
+            })
+        })
+    });
+
+    describe('#bulkImportDeletePart', function() {
+        it('should delete uploaded partition', function(done) {
+            client.bulkImportDeletePart('test_import', 'part1', function(err, results) {
+                assert.equal(err, null);
+                assert.equal(results.bulk_import, 'test_import');
+                assert.equal(results.name, 'test_import');
+                done();
+            });
+        })
+    });
+
+    describe('#performBulkImport', function() {
+       it('should perform bulk import job', function(done) {
+           client.performBulkImport('test_import', function(err, results) {
+               assert.equal(err, null);
+               assert.equal(results.bulk_import, 'test_import');
+               assert.equal(results.name, 'test_import');
+               assert.equal(results.job_id, 12345678);
+               done();
+           })
+       })
+    });
+
+    describe('#commitBulkImport', function() {
+       it('should commit bulk import job', function(done) {
+           client.commitBulkImport('test_import', function(err, results) {
+               assert.equal(err, null);
+               assert.equal(results.bulk_import, 'test_import');
+               assert.equal(results.name, 'test_import');
+               done();
+           });
+       })
+    });
 });
