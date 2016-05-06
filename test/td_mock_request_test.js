@@ -100,6 +100,27 @@ describe('TD with mock api', function() {
         });
     });
 
+    describe('#jobResult', function() {
+      it('should show job result in default(tsv) format', function(done) {
+        client.jobResult('12345', function(err, results) {
+          assert.equal('Nobita\t14\tTokyo\nTakeshi\t14\tTokyo\nSuneo\t14\tShizuoka', results);
+          done();
+        });
+      });
+      it('should show job result in csv format', function(done) {
+        client.jobResult('12345', 'csv', function(err, results) {
+          assert.equal('Nobita,14,Tokyo\nTakeshi,14,Tokyo\nSuneo,14,Shizuoka', results);
+          done();
+        });
+      });
+      it('should show job result in json format', function(done) {
+        client.jobResult('12345', 'json', function(err, results) {
+          assert.equal("[Nobita,14,Tokyo]\n[Takeshi,14,Tokyo]\n[Suneo,14,Shizuoka]", results);
+          done();
+        });
+      })
+    });
+
     describe('#hiveQuery', function() {
         it('should submit hive query', function(done) {
             var q = 'SELECT COUNT(*) FROM www_access';

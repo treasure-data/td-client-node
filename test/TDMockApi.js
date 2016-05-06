@@ -83,6 +83,18 @@ TDMockApi.prototype = {
             }
         });
 
+        this.apiServer.get('/v3/job/result/12345?format=csv').reply(200,
+          "Nobita,14,Tokyo\nTakeshi,14,Tokyo\nSuneo,14,Shizuoka"
+        );
+
+        this.apiServer.get('/v3/job/result/12345?format=tsv').reply(200,
+          "Nobita\t14\tTokyo\nTakeshi\t14\tTokyo\nSuneo\t14\tShizuoka"
+        );
+
+        this.apiServer.get('/v3/job/result/12345?format=json').reply(200,
+          "[Nobita,14,Tokyo]\n[Takeshi,14,Tokyo]\n[Suneo,14,Shizuoka]"
+        );
+
         this.apiServer.get('/v3/table/list/my_db').reply(200, {
             database: "my_db",
             tables: [
