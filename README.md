@@ -6,10 +6,10 @@
 
 Many web/mobile applications generate huge amount of event logs (c,f. login,
 logout, purchase, follow, etc).  Analyzing these event logs can be quite
-valuable for improving services.  However, analyzing these logs easily and 
+valuable for improving services.  However, analyzing these logs easily and
 reliably is a challenging task.
 
-Treasure Data Cloud solves the problem by having: easy installation, small 
+Treasure Data Cloud solves the problem by having: easy installation, small
 footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.
 
   * Treasure Data website: [https://www.treasuredata.com/](https://www.treasuredata.com/)
@@ -35,6 +35,8 @@ node.js >= 0.8
 
 ## Examples
 Please see: [https://docs.treasuredata.com/articles/rest-api-node-client](https://docs.treasuredata.com/articles/rest-api-node-client)
+
+More detail in [API reference](http://treasure-data.github.io/td-client-node/docs/index.html).
 
 ## License
 
