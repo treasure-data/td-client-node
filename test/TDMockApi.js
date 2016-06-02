@@ -109,6 +109,12 @@ TDMockApi.prototype = {
             table2: "tbl2"
         });
 
+        this.apiServer.post('/v3/table/delete/my_db/tbl_to_be_deleted').reply(200, {
+           database: 'my_db',
+           table: 'tbl_to_be_deleted',
+           type: 'log'
+        });
+
         var hive_query_response = {
             job_id: "12345",
             type: "hive",
