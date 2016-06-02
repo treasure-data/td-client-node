@@ -100,6 +100,18 @@ describe('TD with mock api', function() {
         });
     });
 
+    describe('#deleteTable', function() {
+       it('should delete target tbl', function(done) {
+          client.deleteTable('my_db', 'tbl_to_be_deleted', function(err, results) {
+              assert.equal(null, err);
+              assert.equal('my_db', results.database);
+              assert.equal('table_to_be_deleted', results.table);
+              assert.equal('log', results.type);
+              done();
+          });
+       });
+    });
+
     describe('#jobResult', function() {
       it('should show job result in default(tsv) format', function(done) {
         client.jobResult('12345', function(err, results) {
