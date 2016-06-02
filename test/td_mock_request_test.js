@@ -105,7 +105,7 @@ describe('TD with mock api', function() {
           client.deleteTable('my_db', 'tbl_to_be_deleted', function(err, results) {
               assert.equal(null, err);
               assert.equal('my_db', results.database);
-              assert.equal('table_to_be_deleted', results.table);
+              assert.equal('tbl_to_be_deleted', results.table);
               assert.equal('log', results.type);
               done();
           });
