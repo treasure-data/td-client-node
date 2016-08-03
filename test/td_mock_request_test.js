@@ -52,6 +52,26 @@ describe('TD with mock api', function() {
        });
     });
 
+    describe('#createLogTable', function() {
+       it('should create log table', function(done) {
+          client.createLogTable('db', 'test_log_table', function(err, results) {
+              assert.equal(null, err);
+              assert.equal('test_log_table', results.table);
+              done();
+          })
+       });
+    });
+
+    describe('#createItemTable', function() {
+       it('shouldn\'t create item type table', function(done) {
+           client.createItemTable('db', 'test_item_table', function (err, results) {
+               assert.equal("Table type must be \'log\'", results.text);
+               assert.equal('error', results.severity);
+               done();
+           })
+       });
+    });
+
     describe('#listJobs', function() {
         it('should get all jobs', function(done){
             client.listJobs(function(err, results) {

@@ -25,6 +25,18 @@ TDMockApi.prototype = {
            database: 'db_to_be_created'
         });
 
+        this.apiServer.post('/v3/table/create/db/test_log_table/log').reply(200, {
+          table: 'test_log_table',
+          type: 'log',
+          database: 'kai_test_db'
+        });
+
+        this.apiServer.post('/v3/table/create/db/test_item_table/item').reply(422, {
+          error: 'Table type must be \'log\'',
+          text: 'Table type must be \'log\'',
+          severity: 'error'
+        });
+
         this.apiServer.get('/v3/job/list/?from=0').reply(200, {
             count: 2,
             from: null,
