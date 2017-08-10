@@ -320,7 +320,7 @@ describe('TD with mock api', function() {
             var customHeaderClient = new TD('MOCK_API_KEY', {
                 host: 'mock.api.treasuredata.com',
                 headers: {
-                    'Custom Header': 'CUSTOM'
+                    'Content-Type': 'application/json'
                 }
             });
 

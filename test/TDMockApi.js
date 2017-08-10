@@ -249,7 +249,7 @@ TDMockApi.prototype = {
         });
 
         this.apiServer.get('/v3/job/show/custom_header').reply(function(uri, request) {
-            assert.equal(this.req.headers['custom header'], 'CUSTOM');
+            assert.equal(this.req.headers['content-type'], 'application/json');
         });
 
         this.apiServer.post('/v3/bulk_import/create/test_import/test_db/test_table').reply(200, {
