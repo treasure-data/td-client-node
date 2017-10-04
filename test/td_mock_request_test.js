@@ -2,7 +2,7 @@ var fs = require('fs');
 var assert = require('assert');
 var TDMockApi = require('./TDMockApi.js');
 
-var TD = require('../lib/index.js');
+var TD = require('../dist/index.js');
 
 describe('TD with mock api', function() {
 
