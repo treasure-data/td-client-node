@@ -1,5 +1,5 @@
 var assert = require('assert');
-var TD = require('../lib/index.js');
+var TD = require('../dist/index.js');
 
 var client = new TD(process.env.TREASURE_DATA_API_KEY);
 

@@ -3,10 +3,12 @@ all:
 
 .PHONY: test clean
 test:
-	./node_modules/.bin/mocha
+	npm test
 
 circleci:
-	NODE_ENV=test ./node_modules/.bin/mocha --require blanket --reporter mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+	npm test
+	npm run coverage
+	cp -R coverage ${CIRCLE_ARTIFACTS}/coverage
 	./node_modules/.bin/jsdoc -d ${CIRCLE_ARTIFACTS}/apidoc -R ./README.md ./lib/index.js
 
 clean:
