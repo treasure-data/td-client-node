@@ -4,6 +4,5 @@
 .idea
 td-bulk-import.log
 dist/
-docs/
 coverage/
 .nyc_output/

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: exports</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: exports</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>exports<span class="signature">(apikey, options)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Treasure Data REST API Client</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="exports"><span class="type-signature"></span>new exports<span class="signature">(apikey, options)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>apikey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The API key available from user account.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Specify the endpoint of TreasureData api.
+                           options.host = 'api.treasuredata.com'
+                           options.protocol = 'http'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version"><ul class="dummy"><li>0.3.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>jwyuan and lewuathe</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+    <dt class="tag-license">License:</dt>
+    <dd class="tag-license"><ul class="dummy"><li>Apache-2.0</li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://docs.treasuredata.com/articles/rest-api-node-client">http://docs.treasuredata.com/articles/rest-api-node-client</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+<h5>Requires:</h5>
+<ul>
+    <li>module:request</li>
+
+    <li>module:querystring</li>
+
+    <li>module:merge</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var TD = require('td');
+ var client = new TD('TREASURE_DATA_API_KEY');
+
+ var fnPrint = function(err, results) {
+   console.log(results);
+ };
+ client.listDatabase(function(err, results) {
+   for (var i = 0; i &lt; results.databases.length; i++) {
+     client.listTables(results.databases[i].name, fnPrint);
+   }
+ });
+
+ </code></pre>
+
+
+
+    
+    </div>
+
+    
+
+    
+        <h3 class="subsection-title">Requires</h3>
+
+        <ul>
+            <li>module:request</li>
+        
+            <li>module:querystring</li>
+        
+            <li>module:merge</li>
+        </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_put">_put</a></li><li><a href="global.html#_query">_query</a></li><li><a href="global.html#_request">_request</a></li><li><a href="global.html#bulkImportDeletePart">bulkImportDeletePart</a></li><li><a href="global.html#bulkImportUploadPart">bulkImportUploadPart</a></li><li><a href="global.html#commitBulkImport">commitBulkImport</a></li><li><a href="global.html#createBulkImport">createBulkImport</a></li><li><a href="global.html#createDatabase">createDatabase</a></li><li><a href="global.html#createItemTable">createItemTable</a></li><li><a href="global.html#createLogTable">createLogTable</a></li><li><a href="global.html#createSchedule">createSchedule</a></li><li><a href="global.html#createTable">createTable</a></li><li><a href="global.html#deleteBulkImport">deleteBulkImport</a></li><li><a href="global.html#deleteDatabase">deleteDatabase</a></li><li><a href="global.html#deleteSchedule">deleteSchedule</a></li><li><a href="global.html#hiveQuery">hiveQuery</a></li><li><a href="global.html#jobResult">jobResult</a></li><li><a href="global.html#kill">kill</a></li><li><a href="global.html#listBulkImportParts">listBulkImportParts</a></li><li><a href="global.html#listBulkImports">listBulkImports</a></li><li><a href="global.html#listDatabases">listDatabases</a></li><li><a href="global.html#listJobs">listJobs</a></li><li><a href="global.html#listSchedules">listSchedules</a></li><li><a href="global.html#listTables">listTables</a></li><li><a href="global.html#performBulkImport">performBulkImport</a></li><li><a href="global.html#prestoQuery">prestoQuery</a></li><li><a href="global.html#showBulkImport">showBulkImport</a></li><li><a href="global.html#showJob">showJob</a></li><li><a href="global.html#swapTable">swapTable</a></li><li><a href="global.html#updateSchedule">updateSchedule</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Oct 14 2017 11:05:30 GMT+0900 (JST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
