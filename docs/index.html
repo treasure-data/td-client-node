@@ -43,20 +43,21 @@
 
 
     <section>
-        <article><h1>Node.js Client for Treasure Data</h1><p> <a href="https://badge.fury.io/js/td"><img src="https://badge.fury.io/js/td.svg" alt="npm version"></a> <a href="https://david-dm.org/treasure-data/td-client-node"><img src="https://david-dm.org/treasure-data/td-client-node.svg" alt="Dependency Status"></a> <a href="https://circleci.com/gh/treasure-data/td-client-node"><img src="https://circleci.com/gh/treasure-data/td-client-node.svg?style=svg&amp;circle-token=3e6d45d70e790212c0aa5a974f3daf8656fd3a37" alt="Circle CI"></a></p>
+        <article><h1>Node.js Client for Treasure Data</h1><p> <a href="https://badge.fury.io/js/td"><img src="https://badge.fury.io/js/td.svg" alt="npm version"></a> <a href="https://david-dm.org/treasure-data/td-client-node"><img src="https://david-dm.org/treasure-data/td-client-node.svg" alt="Dependency Status"></a> <a href="https://circleci.com/gh/treasure-data/td-client-node"><img src="https://circleci.com/gh/treasure-data/td-client-node.svg?style=svg&amp;circle-token=3e6d45d70e790212c0aa5a974f3daf8656fd3a37" alt="Circle CI"></a> <a href="https://coveralls.io/github/treasure-data/td-client-node?branch=integrate-coveralls"><img src="https://coveralls.io/repos/github/treasure-data/td-client-node/badge.svg?branch=integrate-coveralls" alt="Coverage Status"></a></p>
 <h2>Overview</h2><p>Many web/mobile applications generate huge amount of event logs (c,f. login,
 logout, purchase, follow, etc).  Analyzing these event logs can be quite
-valuable for improving services.  However, analyzing these logs easily and 
+valuable for improving services.  However, analyzing these logs easily and
 reliably is a challenging task.</p>
-<p>Treasure Data Cloud solves the problem by having: easy installation, small 
+<p>Treasure Data Cloud solves the problem by having: easy installation, small
 footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.</p>
 <ul>
 <li>Treasure Data website: <a href="https://www.treasuredata.com/">https://www.treasuredata.com/</a></li>
 <li>Treasure Data GitHub: <a href="https://github.com/treasure-data/">https://github.com/treasure-data/</a></li>
 </ul>
 <p><strong>td-client-node</strong> is a node.js client.</p>
-<h2>Requirements</h2><p>node.js &gt;= 0.8</p>
+<h2>Requirements</h2><p>node.js &gt;= 4.8.4</p>
 <h2>Install</h2><pre class="prettyprint source"><code>npm install td</code></pre><h2>Generate JSDoc site</h2><pre class="prettyprint source"><code>make site</code></pre><h2>Test</h2><pre class="prettyprint source"><code>make test</code></pre><h2>Examples</h2><p>Please see: <a href="https://docs.treasuredata.com/articles/rest-api-node-client">https://docs.treasuredata.com/articles/rest-api-node-client</a></p>
+<p>More detail in <a href="http://treasure-data.github.io/td-client-node/docs/index.html">API reference</a>.</p>
 <h2>License</h2><p>Apache Software License, Version 2.0</p>
 <p>See <a href="https://github.com/treasure-data/td-client-node/blob/master/LICENSE">LICENSE file</a>.</p></article>
     </section>
@@ -69,13 +70,13 @@ footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.</
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="TDClient.html">TDClient</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_put">_put</a></li><li><a href="global.html#_query">_query</a></li><li><a href="global.html#_request">_request</a></li><li><a href="global.html#bulkImportDeletePart">bulkImportDeletePart</a></li><li><a href="global.html#bulkImportUploadPart">bulkImportUploadPart</a></li><li><a href="global.html#commitBulkImport">commitBulkImport</a></li><li><a href="global.html#createBulkImport">createBulkImport</a></li><li><a href="global.html#createDatabase">createDatabase</a></li><li><a href="global.html#createItemTable">createItemTable</a></li><li><a href="global.html#createLogTable">createLogTable</a></li><li><a href="global.html#createSchedule">createSchedule</a></li><li><a href="global.html#createTable">createTable</a></li><li><a href="global.html#deleteBulkImport">deleteBulkImport</a></li><li><a href="global.html#deleteDatabase">deleteDatabase</a></li><li><a href="global.html#deleteSchedule">deleteSchedule</a></li><li><a href="global.html#hiveQuery">hiveQuery</a></li><li><a href="global.html#jobResult">jobResult</a></li><li><a href="global.html#kill">kill</a></li><li><a href="global.html#listBulkImportParts">listBulkImportParts</a></li><li><a href="global.html#listBulkImports">listBulkImports</a></li><li><a href="global.html#listDatabases">listDatabases</a></li><li><a href="global.html#listJobs">listJobs</a></li><li><a href="global.html#listSchedules">listSchedules</a></li><li><a href="global.html#listTables">listTables</a></li><li><a href="global.html#performBulkImport">performBulkImport</a></li><li><a href="global.html#prestoQuery">prestoQuery</a></li><li><a href="global.html#showBulkImport">showBulkImport</a></li><li><a href="global.html#showJob">showJob</a></li><li><a href="global.html#swapTable">swapTable</a></li><li><a href="global.html#updateSchedule">updateSchedule</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat May 14 2016 09:59:53 GMT+0900 (JST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Oct 14 2017 11:02:05 GMT+0900 (JST)
 </footer>
 
 <script> prettyPrint(); </script>
