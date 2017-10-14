@@ -1,8 +1,0 @@
-machine:
-  node:
-      version: 4.8.4
-
-test:
-  override:
-      - make circleci
-    
