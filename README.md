@@ -19,7 +19,7 @@ footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.
 
 ## Requirements
 
-node.js >= 0.8
+node.js >= 4.8.4
 
 ## Install
 

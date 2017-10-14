@@ -16,4 +16,9 @@
 0.2.2 / 2013-09-27
 ==================
 
-* Merged pull request from @nozaq to fix result api
+  * Merged pull request from @nozaq to fix result api
+
+0.3.0 / 2017-10-14
+==================
+
+  * Convert codebase to ES6
