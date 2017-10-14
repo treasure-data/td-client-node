@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    working_directory: /tmp/td-client-node
+    docker:
+      - image: circleci/node:4.8.4
+    steps:
+      - checkout
+      - restore_cache:
+          key: td-client-node-${CIRCLE_SHA1}
+      - run:
+          name: Install npm dependencies
+          command: npm install
+      - run:
+          name: Test
+          command: make circleci
+      - save_cache:
+          paths:
+            - node_modules
+          key: td-client-node-${CIRCLE_SHA1}
+      - store_artifacts:
+          path: coverage
+      - store_artifacts:
+          path: apidoc

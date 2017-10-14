@@ -25,6 +25,18 @@ TDMockApi.prototype = {
            database: 'db_to_be_created'
         });
 
+        this.apiServer.post('/v3/table/create/db/test_log_table/log').reply(200, {
+          table: 'test_log_table',
+          type: 'log',
+          database: 'kai_test_db'
+        });
+
+        this.apiServer.post('/v3/table/create/db/test_item_table/item').reply(422, {
+          error: 'Table type must be \'log\'',
+          text: 'Table type must be \'log\'',
+          severity: 'error'
+        });
+
         this.apiServer.get('/v3/job/list/?from=0').reply(200, {
             count: 2,
             from: null,
@@ -107,6 +119,12 @@ TDMockApi.prototype = {
             database: "my_db",
             table1: "tbl1",
             table2: "tbl2"
+        });
+
+        this.apiServer.post('/v3/table/delete/my_db/tbl_to_be_deleted').reply(200, {
+           database: 'my_db',
+           table: 'tbl_to_be_deleted',
+           type: 'log'
         });
 
         var hive_query_response = {
@@ -231,7 +249,7 @@ TDMockApi.prototype = {
         });
 
         this.apiServer.get('/v3/job/show/custom_header').reply(function(uri, request) {
-            assert.equal(this.req.headers['custom header'], 'CUSTOM');
+            assert.equal(this.req.headers['content-type'], 'application/json');
         });
 
         this.apiServer.post('/v3/bulk_import/create/test_import/test_db/test_table').reply(200, {

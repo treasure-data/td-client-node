@@ -2,7 +2,7 @@ var fs = require('fs');
 var assert = require('assert');
 var TDMockApi = require('./TDMockApi.js');
 
-var TD = require('../lib/index.js');
+var TD = require('../dist/index.js');
 
 describe('TD with mock api', function() {
 
@@ -52,6 +52,26 @@ describe('TD with mock api', function() {
        });
     });
 
+    describe('#createLogTable', function() {
+       it('should create log table', function(done) {
+          client.createLogTable('db', 'test_log_table', function(err, results) {
+              assert.equal(null, err);
+              assert.equal('test_log_table', results.table);
+              done();
+          })
+       });
+    });
+
+    describe('#createItemTable', function() {
+       it('shouldn\'t create item type table', function(done) {
+           client.createItemTable('db', 'test_item_table', function (err, results) {
+               assert.equal("Table type must be \'log\'", results.text);
+               assert.equal('error', results.severity);
+               done();
+           })
+       });
+    });
+
     describe('#listJobs', function() {
         it('should get all jobs', function(done){
             client.listJobs(function(err, results) {
@@ -98,6 +118,18 @@ describe('TD with mock api', function() {
                 done();
             });
         });
+    });
+
+    describe('#deleteTable', function() {
+       it('should delete target tbl', function(done) {
+          client.deleteTable('my_db', 'tbl_to_be_deleted', function(err, results) {
+              assert.equal(null, err);
+              assert.equal('my_db', results.database);
+              assert.equal('tbl_to_be_deleted', results.table);
+              assert.equal('log', results.type);
+              done();
+          });
+       });
     });
 
     describe('#jobResult', function() {
@@ -288,7 +320,7 @@ describe('TD with mock api', function() {
             var customHeaderClient = new TD('MOCK_API_KEY', {
                 host: 'mock.api.treasuredata.com',
                 headers: {
-                    'Custom Header': 'CUSTOM'
+                    'Content-Type': 'application/json'
                 }
             });
 
