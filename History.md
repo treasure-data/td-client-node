@@ -22,3 +22,8 @@
 ==================
 
   * Convert codebase to ES6
+
+0.3.1 / 2018-06-23
+==================
+
+  * Update dependencies to avoid potential vulnerabilities
