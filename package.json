@@ -8,7 +8,7 @@
   "description": "Node.js client for Treasure Data",
   "dependencies": {
     "jsdoc": "^3.5.5",
-    "merge": "^1.2.0",
+    "merge": "^1.2.1",
     "nock": "^9.0.0",
     "request": "^2.87.0"
   },
