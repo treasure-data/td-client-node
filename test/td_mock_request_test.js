@@ -2,11 +2,11 @@ var fs = require('fs');
 var assert = require('assert');
 var TDMockApi = require('./TDMockApi.js');
 
-var TD = require('../dist/index.js');
+var TDClient = require('../dist/index.js').TDClient;
 
 describe('TD with mock api', function() {
 
-    var client = new TD('MOCK_API_KEY', {
+    var client = new TDClient('MOCK_API_KEY', {
         host: 'mock.api.treasuredata.com'
     });
 
@@ -317,7 +317,7 @@ describe('TD with mock api', function() {
 
     describe('Custome Header with show job', function() {
         it('should send custom header', function(done) {
-            var customHeaderClient = new TD('MOCK_API_KEY', {
+            var customHeaderClient = new TDClient('MOCK_API_KEY', {
                 host: 'mock.api.treasuredata.com',
                 headers: {
                     'Content-Type': 'application/json'
