@@ -17,6 +17,24 @@ footprint, plugins reliable buffering, log forwarding, the log analyzing, etc.
 
 **td-client-node** is a node.js client.
 
+## How to Run
+
+```js
+// Client class is exposed with the name TDClient
+var TDClient = require('td').TDClient;
+var client = new TDClient('TREASURE_DATA_API_KEY');
+
+var fnPrint = function(err, results) {
+  console.log(results);
+};
+
+client.listDatabase(function(err, results) {
+  for (var i = 0; i < results.databases.length; i++) {
+    client.listTables(results.databases[i].name, fnPrint);
+  }
+});
+```
+
 ## Requirements
 
 node.js >= 4.8.4

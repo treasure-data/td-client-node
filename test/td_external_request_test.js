@@ -1,7 +1,7 @@
 var assert = require('assert');
-var TD = require('../dist/index.js');
+var TDClient = require('../dist/index.js').TDClient;
 
-var client = new TD(process.env.TREASURE_DATA_API_KEY);
+var client = new TDClient(process.env.TREASURE_DATA_API_KEY);
 
 describe.skip('TD with external API', function() {
     describe('First test', function() {
