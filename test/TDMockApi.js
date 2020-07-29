@@ -3,7 +3,7 @@ var assert = require('assert');
 
 function TDMockApi(options) {
     this.options = options || {};
-    this.baseUrl = this.options.baseUrl || 'http://mock.api.treasuredata.com';
+    this.baseUrl = this.options.baseUrl || 'https://mock.api.treasuredata.com';
     this.apiServer = nock(this.baseUrl);
 }
 
