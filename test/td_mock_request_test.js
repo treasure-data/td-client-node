@@ -18,7 +18,7 @@ describe('TD with mock api', function() {
     describe('#getBaseUrl', function() {
         it('should return correct base url', function() {
             var baseUrl = client.baseUrl;
-            assert.equal('http://mock.api.treasuredata.com', baseUrl);
+            assert.equal('https://mock.api.treasuredata.com', baseUrl);
         });
     });
 
