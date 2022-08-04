@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /tmp/td-client-node
     docker:
-      - image: cimg/node:10.16
+      - image: cimg/node:10.24
     steps:
       - checkout
       - restore_cache:
