@@ -1,6 +1,6 @@
 # Node.js Client for Treasure Data
 
- [![npm version](https://badge.fury.io/js/td.svg)](https://badge.fury.io/js/td) [![Dependency Status](https://david-dm.org/treasure-data/td-client-node.svg)](https://david-dm.org/treasure-data/td-client-node) [![Circle CI](https://circleci.com/gh/treasure-data/td-client-node.svg?style=svg&circle-token=3e6d45d70e790212c0aa5a974f3daf8656fd3a37)](https://circleci.com/gh/treasure-data/td-client-node) [![Coverage Status](https://coveralls.io/repos/github/treasure-data/td-client-node/badge.svg?branch=integrate-coveralls)](https://coveralls.io/github/treasure-data/td-client-node?branch=integrate-coveralls)
+ [![npm version](https://badge.fury.io/js/td.svg)](https://badge.fury.io/js/td) [![Dependency Status](https://img.shields.io/librariesio/release/npm/td)](https://www.npmjs.com/package/td) [![Circle CI](https://circleci.com/gh/treasure-data/td-client-node.svg?style=svg&circle-token=3e6d45d70e790212c0aa5a974f3daf8656fd3a37)](https://circleci.com/gh/treasure-data/td-client-node) [![Coverage Status](https://coveralls.io/repos/github/treasure-data/td-client-node/badge.svg?branch=integrate-coveralls)](https://coveralls.io/github/treasure-data/td-client-node?branch=integrate-coveralls)
 
 ## Overview
 
