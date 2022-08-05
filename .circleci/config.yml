@@ -20,7 +20,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: td-client-node-${CIRCLE_SHA1}
+          key: td-client-node-<< parameters.node-version >>-${CIRCLE_SHA1}
       - store_artifacts:
           path: coverage
       - store_artifacts:
