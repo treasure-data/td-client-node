@@ -9,7 +9,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "jsdoc": "^3.5.5",
-    "merge": "^1.2.1",
+    "merge": "^2.1.1",
     "nock": "^9.0.0",
     "request": "^2.88.2"
   },
