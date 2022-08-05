@@ -1,9 +1,12 @@
 version: 2.1
 jobs:
   build:
+    parameters:
+      node-version:
+        type: string
     working_directory: /tmp/td-client-node
     docker:
-      - image: cimg/node:10.24
+      - image: cimg/node:<< parameters.node-version >>
     steps:
       - checkout
       - restore_cache:
@@ -22,3 +25,16 @@ jobs:
           path: coverage
       - store_artifacts:
           path: apidoc
+
+workflows:
+  all-builds:
+    jobs:
+      - build:
+          matrix:
+            parameters:
+              node-version:
+                - "10.24" # EOL
+                - "12.22" # EOL
+                - "14.20"
+                - "16.16"
+                - "18.7"
