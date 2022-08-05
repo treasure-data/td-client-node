@@ -11,7 +11,7 @@
     "jsdoc": "^3.5.5",
     "merge": "^2.1.1",
     "nock": "^9.0.0",
-    "request": "^2.88.2"
+    "node-fetch": "^3.2.10"
   },
   "repository": {
     "type": "git",
