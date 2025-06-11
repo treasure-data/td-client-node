@@ -209,6 +209,32 @@ describe('TD with mock api', function() {
        });
     });
 
+    describe('#trinoQuery', function() {
+       it('should submit trino query', function(done) {
+           var q = 'SELECT COUNT(*) FROM www_access';
+           client.trinoQuery('my_db', q, function(err, results) {
+               assert.equal(null, err);
+               assert.equal("45678", results.job);
+               assert.equal("trino_db", results.database);
+               assert.equal("45678", results.job_id);
+               done();
+           });
+       });
+
+       it('should submit trino query with options', function(done) {
+           var q = 'SELECT COUNT(*) FROM www_access';
+           var opts = { result: "web://result.example.com/callback" }
+
+           client.trinoQuery('my_db', q, opts, function(err, results) {
+               assert.equal(null, err);
+               assert.equal("45678", results.job);
+               assert.equal("trino_db", results.database);
+               assert.equal("45678", results.job_id);
+               done();
+           });
+       });
+    });
+
     describe('#kill', function() {
         it('should kill target job', function(done) {
             client.kill('12345', function(err, results) {

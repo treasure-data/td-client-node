@@ -158,6 +158,20 @@ TDMockApi.prototype = {
             result: 'web://result.example.com/callback'
         }).reply(200, presto_query_response);
 
+        var trino_query_response = {
+          job: '45678',
+          database: 'trino_db',
+          job_id: '45678'
+        }
+        this.apiServer.post('/v3/job/issue/trino/my_db', {
+            query: "SELECT COUNT(*) FROM www_access"
+        }).reply(200, trino_query_response);
+
+        this.apiServer.post('/v3/job/issue/trino/my_db', {
+            query: "SELECT COUNT(*) FROM www_access",
+            result: 'web://result.example.com/callback'
+        }).reply(200, trino_query_response);
+
         this.apiServer.post('/v3/schedule/create/my_scheduled_query', {
             cron: '0 * * * *',
             query: 'SELECT COUNT(1) FROM www_access',
