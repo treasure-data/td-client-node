@@ -27,3 +27,9 @@
 ==================
 
   * Update dependencies to avoid potential vulnerabilities
+
+
+0.5.0 / 2025-06-19
+==================
+
+  * Add trino query
